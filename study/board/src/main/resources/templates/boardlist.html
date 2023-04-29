@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 리스트 페이지</title>
+</head>
+
+<style>
+
+  .layout {
+      width : 500px;
+      margin: 0 auto;
+      margin-top: 40px;
+  }
+
+</style>
+
+<body>
+
+  <div class="layout">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>글번호</th>
+          <th>제목</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <!--   controller에서 model.addAttribute("list", boardService.boardList()); 여기의 이름을 list로 줘서 받아옴 (보드 리스트를 list라는 이름에 넣어서 전달)  -->
+        <!--  th는 타임리프, th:each는 반복문      -->
+        <tr th:each="board : ${list}">
+          <td th:text="${board.id}"></td>
+          <td>
+              <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+
+</body>
+</html>
