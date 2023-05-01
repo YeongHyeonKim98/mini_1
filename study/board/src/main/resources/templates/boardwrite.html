@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 작성 폼</title>
+</head>
+
+<style>
+    .layout {
+        width : 500px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .layout  input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .layout  textarea {
+        width: 100%;
+        margin-top: 10px;
+        min-height: 100px;
+    }
+
+</style>
+
+<body>
+<!-- 글 작성 -->
+    <div class="layout">
+        <form action="/board/writepro" method="post" enctype="multipart/form-data">
+            <input name="title" type="text">
+            <textarea name="content"></textarea>
+
+            <!--    파일 업로드 (위에 멀티파트 폼데이터 써줘야함.)    -->
+            <input type="file" name="file">
+
+            <button type="submit">작성</button>
+        </form>
+    </div>
+</body>
+</html>
